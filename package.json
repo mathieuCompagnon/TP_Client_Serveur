@@ -1,0 +1,25 @@
+{
+  "name": "tp_client_serveur",
+  "version": "1.0.0",
+  "description": "TP ESME en node.js. Creation d'un gestionnaire de flotte ",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mathieuCompagnon/TP_Client_Serveur.git"
+  },
+  "keywords": [
+    "vehicule",
+    "flotte",
+    "node.js",
+    "serveur"
+  ],
+  "author": "Mathieu Compagnon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mathieuCompagnon/TP_Client_Serveur/issues"
+  },
+  "homepage": "https://github.com/mathieuCompagnon/TP_Client_Serveur#readme"
+}
