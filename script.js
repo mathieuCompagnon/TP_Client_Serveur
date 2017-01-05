@@ -1,0 +1,3 @@
+function getDataFromAPI(url, param) {
+	
+}
