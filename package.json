@@ -21,5 +21,23 @@
   "bugs": {
     "url": "https://github.com/mathieuCompagnon/TP_Client_Serveur/issues"
   },
-  "homepage": "https://github.com/mathieuCompagnon/TP_Client_Serveur#readme"
+  "homepage": "https://github.com/mathieuCompagnon/TP_Client_Serveur#readme",  
+  
+  "xo": {
+	 " esnext ": true ,
+	 " envs ": [
+		 " node "
+	 ],
+	 " space ": 2,
+	 " rules ": {
+		 "max -len": [
+			 " error ",
+			 80,
+			 2
+		 ]
+	 },
+	 " ignores ": [
+		"Gruntflie .js"
+	 ]
+  }
 }
