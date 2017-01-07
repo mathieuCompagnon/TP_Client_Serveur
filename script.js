@@ -13,7 +13,7 @@ function getDataFromAPI(page, param) {
 	$.getJSON(request, function(data) {
 		console.log(data);
 		if (data.error){
-			alert("Error: " + data.error);
+			alert("Error: " + data.error); 
 		}else{
 			alert(data);
 		}	
