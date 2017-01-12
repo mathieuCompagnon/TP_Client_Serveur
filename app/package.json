@@ -4,7 +4,8 @@
   "description": "TP ESME en node.js. Creation d'un gestionnaire de flotte ",
   "main": "app.js",
   "scripts": {
-    "test": "node app.js"
+    "start": "node app.js",
+    "test": "node app.js"	
   },
   "repository": {
     "type": "git",
@@ -21,23 +22,25 @@
   "bugs": {
     "url": "https://github.com/mathieuCompagnon/TP_Client_Serveur/issues"
   },
-  "homepage": "https://github.com/mathieuCompagnon/TP_Client_Serveur#readme",  
-  
+  "homepage": "https://github.com/mathieuCompagnon/TP_Client_Serveur#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "mongoose": "^4.7.6",
+    "xo": "^0.17.1"
+  },
   "xo": {
-	 " esnext ": true ,
-	 " envs ": [
-		 " node "
-	 ],
-	 " space ": 2,
-	 " rules ": {
-		 "max -len": [
-			 " error ",
-			 80,
-			 2
-		 ]
-	 },
-	 " ignores ": [
-		"Gruntflie .js"
-	 ]
-  }
+    "esnext": true,
+    "envs": [
+      "browser",
+      "node"
+    ],
+    "space": 2,
+    "rules": {
+      "max-len": [
+        "error",
+        80,
+        2
+      ]
+   }
+   }
 }
