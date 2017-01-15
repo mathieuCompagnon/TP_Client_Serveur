@@ -15,13 +15,12 @@ User contain :
 - name
 - password
 
-</br>
 Auto contain :
 - start point
 - end point
-- user
-- group
-- image
+- user (name of the owner)
+- group (id or number if the auto is part of a group)
+- image (just an URL for display in the client side)
 
 
 
