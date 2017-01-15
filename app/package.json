@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "test": "node app.js"	
+    "test": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -26,7 +26,8 @@
   "dependencies": {
     "express": "^4.14.0",
     "mongoose": "^4.7.6",
-    "xo": "^0.17.1"
+    "xo": "^0.17.1",
+    "json-api": "^2.15.7"
   },
   "xo": {
     "esnext": true,

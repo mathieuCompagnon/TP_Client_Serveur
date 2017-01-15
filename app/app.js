@@ -1,59 +1,34 @@
-var http = require('http');
-var url = require('url');
-var querystring = require('querystring');
-
+var api = require('json-api');
 var express = require('express');
 var app = express();
-
-var vehicule = [];//require('./model/vehicule.js');
-var user = require('./model/user.js'); 
- 
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-mongoose.connect('mongodb://localhost/TDvehicule');
- 
-  
 
-app.use(function (req, res, next) {	
+var auto = require('./model/auto.js');
+var user = require('./model/user.js'); 
 
-	//Cross origine request error
-	res.setHeader('Access-Control-Allow-Origin', '*');
-	res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-	res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,contenttype');
-	res.setHeader('Access-Control-Allow-Credentials', true);
+mongoose.connect('mongodb://localhost/TDvehicule'); 
+var models = { User: user, auto: auto };
+var adapter = new api.dbAdapters.Mongoose(models);
+var registry = new api.ResourceTypeRegistry({}, { dbAdapter: adapter }); 
+var Front = new api.httpStrategies.Express(new api.controllers.API(registry),'');
+console.log("Server ready.");
 
-	var path = url.parse(req.url).pathname;
-	var params = querystring.parse(url.parse(req.url).query);
-	console.log(path);	
-	
-	res.writeHead(200, {'Content-Type': 'application/json'});  	
-	var to_send;  
-	  
-	if(path == '/connect'){
-		
-	}else if(path == '/getVoiture' && params['id'] ){		
-		if(car[params['id']]){
-			console.log("yep");
-			to_send = {voitureData : car[params['id']]};
-		}else{
-			console.log("nop");
-			to_send = {error : 'not found'};
-		}
-	}else if(path == '/setVoiture'){
-		
-	}else if(path == '/delVoiture'){
-		
-	}else if(path == ''){
-		
-	}else if(path == ''){
-		
-	}else if(path == ''){
-		
-	}	  	  
-	
-	res.end(JSON.stringify(to_send));
-	next();
+app.use(function (req, res, next) {
+   res.setHeader('Access-Control-Allow-Origin', '*');
+   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,contenttype');
+   next();
+});
+
+app.get('/api/:type(user|auto)', Front.apiRequest.bind(Front));
+app.get('/api/:type(user|auto)/:id', Front.apiRequest.bind(Front));
+app.post('/api/:type(user|auto)', Front.apiRequest.bind(Front));
+app.patch('/api/:type(user|auto)/:id', Front.apiRequest.bind(Front));
+app.delete('/api/:type(user|auto)/:id', Front.apiRequest.bind(Front));
+
+app.get('/', function (req, res) {
+	return res.send('The api is here : http://localhost:3000/api');  
 });
  
- 
-app.listen(80);
+app.listen(3000);
