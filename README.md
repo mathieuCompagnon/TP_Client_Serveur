@@ -13,8 +13,9 @@ You can request on two models, user and auto.
 the two can be list, get, create, delete and update.
 User contain :
 - name
-- password.
-<br>
+- password
+
+</br>
 Auto contain :
 - start point
 - end point
